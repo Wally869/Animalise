@@ -1,91 +1,85 @@
 <html>
-  <head>
-    <link rel="icon" type="image/png" href="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRB1QklCwFiJQLIRypYPOtD46P1-BjDDTZ17vu3jA26m6D0kv55&usqp=CAU"/>
-    <link
-      href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css"
-      rel="stylesheet"
-    />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.0/howler.min.js"></script>
-  </head>
-  <body
-    class=""
-    style="
+
+<head>
+  <link rel="icon" type="image/png"
+    href="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRB1QklCwFiJQLIRypYPOtD46P1-BjDDTZ17vu3jA26m6D0kv55&usqp=CAU" />
+  <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.0/howler.min.js"></script>
+</head>
+
+<body class="" style="
       background-image: url('https://i.redd.it/whzj05ek1la41.png');
       background-size: cover;
-    "
-  >
-    <div class="flex items-center justify-center h-screen">
-      <div class="flex-col">
-        <div class="bg-gray-100 p-12 bg-opacity-75 rounded-lg py-8">
-          <div class="flex">
-            <div class="w-3/12">
-              <img
-                src="https://vignette.wikia.nocookie.net/animalcrossing/images/5/51/TomNookACNH1.png/revision/latest?cb=20200104235118&path-prefix=fr"
-              />
+    ">
+  <div class="flex items-center justify-center h-screen">
+    <div class="flex-col">
+      <div class="p-2 bg-teal-800 rounded-full">
+        <h1 class="text-white text-xl font-bold text-center py-1">
+          Animalise - The Sound of Animal Crossing
+        </h1>
+      </div>
+      <div class="h-12"></div>
+      <div class="bg-gray-100 px-12 py-8 rounded-lg bg-opacity-75">
+        <div class="flex flex-row-reverse items-center">
+          <div class="w-3/12">
+            <img class="h-40 mx-auto"
+              src="https://vignette.wikia.nocookie.net/animalcrossing/images/5/51/TomNookACNH1.png/revision/latest?cb=20200104235118&path-prefix=fr" />
+            <div>
+              <button
+                class="mt-4 capitalize bg-teal-800 items-center justify-center content-center px-2 py-3 rounded-md text-white font-bold w-full focus:outline-none"
+                onclick="PlayText()">
+                make tom speak
+              </button>
             </div>
-            <div class="w-1/12"></div>
-            <div class="w-8/12 flex-col">
-              <div class="flex-row pb-4">
-                <h1 class="text-teal-800 text-xl font-bold">
-                  Animalise - The Sound of Animal Crossing
-                </h1>
-              </div>
-              <div class="flex-row pb-4">
-                <textarea
-                  class="border-2 border-teal-800 w-full bg-gray-100 bg-opacity-50 text-teal-800 p-2 rounded-lg font-semibold"
-                  id="textInput"
-                  rows="8"
-                  cols="50"
-                  spellcheck="false"
-                  style="resize: none; text-transform: capitalize;"
-                >
-                </textarea>
-              </div>
-              <div class="flex">
-                <button
-                  class="border-2 border-teal-800 items-center justify-center content-center bg-teal-800 p-2 text-white font-bold w-full hover:bg-teal-700 focus:outline-none"
-                  onclick="PlayText()"
-                >
-                  PLAY
-                </button>
-              </div>
+
+          </div>
+          <div class="w-1/12"></div>
+          <div class="flex-grow flex-col">
+            <div class="flex-grow pb-4">
+              <textarea
+                class="border-2 rounded-md capitalize p-2 text-md border-teal-800 w-full bg-gray-100 bg-opacity-50 text-teal-800 font-semibold"
+                id="textInput" rows="9" cols="50" spellcheck="false" autog style="resize: none;">
+        </textarea>
             </div>
+
           </div>
         </div>
-        <div class="flex-row py-6"></div>
-        <div class="flex bg-gray-100 p-6 bg-opacity-75 rounded-lg">
-          <div class="w-full">
-            <div class="flex flex-row pb-8 items-baseline">
-              <div class="w-3/12 ">
-                <p class="text-teal-800 text-xl font-bold text-right">About</p>
-              </div>
-              <div class="w-1/12"></div>
-              <div class="w-7/12">
-                <p class="text-teal-800 text-md font-semibold">
-                  Animalise is a simple reimplementation of the animal sounds
-                  heard in dialogues from Animal Crossing. </br>
-                
-                  I was inspired by
-                  <a class="font-bold underline" href="https://www.youtube.com/watch?v=t_jFVcA-ZsQ">this video</a>
-                </p>
-              </div>
+      </div>
+      <div class="h-12"></div>
+      <div class="flex bg-gray-100 p-6 bg-opacity-75 rounded-lg">
+        <div class="w-full">
+          <div class="flex flex-row pb-5 items-baseline">
+            <div class="w-3/12 ">
+              <p class="text-teal-800 text-xl font-bold text-right">About</p>
             </div>
-            <div class="flex flex-row items-baseline">
-                <div class="w-3/12 ">
-                  <p class="text-teal-800 text-xl font-bold text-right">More Goodness</p>
-                </div>
-                <div class="w-1/12"></div>
-                <div class="w-7/12">
-                  <p class="text-teal-800 text-md font-semibold">
-                    See my blog
-                  </p>
-                </div>
-              </div>
+            <!-- <div class="w-1/12"></div> -->
+            <div class="w-9/12 pl-6">
+              <p class="text-teal-800 text-md font-semibold">
+                <b>Animalise</b> is a simple reimplementation of the animal sounds
+                heard in dialogues from Animal Crossing. </br>
+                <br class="leading-3">
+                I was inspired by
+                <a class="font-bold underline" href="https://www.youtube.com/watch?v=t_jFVcA-ZsQ">this video</a>
+              </p>
+            </div>
+          </div>
+          <div class="flex flex-row items-baseline">
+            <div class="w-3/12 ">
+              <p class="text-teal-800 text-xl font-bold text-right">More Goodness</p>
+            </div>
+            <!-- <div class="w-4"></div> -->
+            <div class="w-9/12 pl-6">
+              <p class="text-teal-800 text-md font-semibold">
+                See my blog
+              </p>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </body>
+  </div>
+</body>
+
 </html>
 
 <script>
@@ -175,21 +169,21 @@
         filteredText.push(textToPlay[i]);
       }
     }
-    
+
 
     // fixed to get chunk of 2
     var playlistUrls = [];
     var i = 0;
     while (i < filteredText.length) {
-        var currToken = filteredText[i];
-        if (currToken in ["c", "p", "s", "t", "w"]) {
-            if (i != filteredText.length - 1) {
-                currToken += "h"
-                i += 1;
-            }
+      var currToken = filteredText[i];
+      if (currToken in ["c", "p", "s", "t", "w"]) {
+        if (i != filteredText.length - 1) {
+          currToken += "h"
+          i += 1;
         }
-        playlistUrls.push(libSounds[currToken]);
-        i += 1;
+      }
+      playlistUrls.push(libSounds[currToken]);
+      i += 1;
     }
 
     /*
