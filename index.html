@@ -1,5 +1,6 @@
 <html>
   <head>
+    <link rel="icon" type="image/png" href="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRB1QklCwFiJQLIRypYPOtD46P1-BjDDTZ17vu3jA26m6D0kv55&usqp=CAU"/>
     <link
       href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css"
       rel="stylesheet"
@@ -15,7 +16,7 @@
   >
     <div class="flex items-center justify-center h-screen">
       <div class="flex-col">
-        <div class="bg-gray-100 p-12 bg-opacity-75">
+        <div class="bg-gray-100 p-12 bg-opacity-75 rounded-lg">
           <div class="flex">
             <div class="w-3/12">
               <img
@@ -31,30 +32,32 @@
               </div>
               <div class="flex-row pb-4">
                 <textarea
-                  class="border-2 border-teal-800 w-full bg-gray-100 bg-opacity-50 text-teal-800"
+                  class="border-2 border-teal-800 w-full bg-gray-100 bg-opacity-50 text-teal-800 p-2 rounded-lg font-semibold"
                   id="textInput"
                   rows="8"
                   cols="50"
+                  spellcheck="false"
+                  style="resize: none; text-transform: capitalize;"
                 >
                 </textarea>
               </div>
               <div class="flex">
                 <button
-                  class="border-2 border-teal-800 items-center justify-center content-center bg-teal-700 p-2 bg-opacity-50 text-teal-800 font-bold w-full"
+                  class="border-2 border-teal-800 items-center justify-center content-center bg-teal-800 p-2 text-white font-bold w-full hover:bg-teal-700 focus:outline-none"
                   onclick="PlayText()"
                 >
-                  Play
+                  PLAY
                 </button>
               </div>
             </div>
           </div>
         </div>
         <div class="flex-row py-6"></div>
-        <div class="flex bg-gray-100 p-12 bg-opacity-75">
+        <div class="flex bg-gray-100 p-6 bg-opacity-75 rounded-lg">
           <div class="w-full">
-            <div class="flex flex-row pb-8">
-              <div class="w-3/12">
-                <p class="text-teal-800 text-xl font-bold">About</p>
+            <div class="flex flex-row pb-8 items-baseline">
+              <div class="w-3/12 ">
+                <p class="text-teal-800 text-xl font-bold text-right">About</p>
               </div>
               <div class="w-1/12"></div>
               <div class="w-7/12">
@@ -63,13 +66,13 @@
                   heard in dialogues from Animal Crossing. </br>
                 
                   I was inspired by
-                  <a class="font-bold" href="https://www.youtube.com/watch?v=t_jFVcA-ZsQ">this video</a>
+                  <a class="font-bold underline" href="https://www.youtube.com/watch?v=t_jFVcA-ZsQ">this video</a>
                 </p>
               </div>
             </div>
-            <div class="flex flex-row">
-                <div class="w-3/12">
-                  <p class="text-teal-800 text-xl font-bold">More Goodness</p>
+            <div class="flex flex-row items-baseline">
+                <div class="w-3/12 ">
+                  <p class="text-teal-800 text-xl font-bold text-right">More Goodness</p>
                 </div>
                 <div class="w-1/12"></div>
                 <div class="w-7/12">
@@ -90,7 +93,7 @@
   // https://images4.alphacoders.com/107/1070856.jpg
 
   // clean init
-  document.getElementById("textInput").value = "Put some text, and press play!";
+  document.getElementById("textInput").value = "Put some text, and press play to make Tom Nook speak!";
 
   var libSounds = {
     a:
@@ -161,6 +164,8 @@
 
   const allowedChars = Object.keys(libSounds);
 
+  var isPlaying = false;
+
   function PlayText() {
     var textToPlay = document.getElementById("textInput").value.toLowerCase();
 
@@ -200,9 +205,10 @@
       );
     });
 
-    console.log(howlerBank.length);
+    //console.log(howlerBank.length);
 
     // initiate the whole :
     howlerBank[0].play();
+    isPlaying = true;
   }
 </script>
