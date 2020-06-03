@@ -163,26 +163,47 @@
   };
 
   const allowedChars = Object.keys(libSounds);
+  console.log(allowedChars);
 
   var currHowlPlaying = null;
 
   function PlayText() {
     var textToPlay = document.getElementById("textInput").value.toLowerCase();
 
-    var theTexto = [];
+    var filteredText = [];
     for (var i = 0; i < textToPlay.length; i++) {
-      if (textToPlay[i] in allowedChars) {
-        theTexto.push(textToPlay[i]);
+        console.log(textToPlay[i])
+      if (allowedChars.includes(textToPlay[i])) {
+        filteredText.push(textToPlay[i]);
       }
     }
+    
 
+    // fixed to get chunk of 2
+    var playlistUrls = [];
+    var i = 0;
+    while (i < filteredText.length) {
+        var currToken = filteredText[i];
+        if (currToken in ["c", "p", "s", "t", "w"]) {
+            if (i != filteredText.length - 1) {
+                currToken += "h"
+                i += 1;
+            }
+        }
+        playlistUrls.push(libSounds[currToken]);
+        i += 1;
+    }
+
+    /*
     var playlistUrls = [];
     for (var i = 0; i < textToPlay.length; i++) {
       if (textToPlay[i] != " ") {
         playlistUrls.push(libSounds[textToPlay[i]]);
       }
     }
-    //console.log(playlistUrls)
+    */
+
+    console.log(playlistUrls)
     playlistUrls.push(libSounds["bubble"]);
     pCount = 0;
 
@@ -199,9 +220,11 @@
       currHowlPlaying = howlerBank[pCount];
     };
 
+    /*
     var onPause = function (e) {
         pCount = howlerBank.length;
     }
+    */
 
     // build up howlerBank:
     playlistUrls.forEach(function (current, i) {
