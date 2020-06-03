@@ -163,7 +163,6 @@
   };
 
   const allowedChars = Object.keys(libSounds);
-  console.log(allowedChars);
 
   var currHowlPlaying = null;
 
@@ -172,7 +171,6 @@
 
     var filteredText = [];
     for (var i = 0; i < textToPlay.length; i++) {
-        console.log(textToPlay[i])
       if (allowedChars.includes(textToPlay[i])) {
         filteredText.push(textToPlay[i]);
       }
@@ -203,7 +201,6 @@
     }
     */
 
-    console.log(playlistUrls)
     playlistUrls.push(libSounds["bubble"]);
     pCount = 0;
 
@@ -233,11 +230,9 @@
       );
     });
 
-    //console.log(howlerBank.length);
 
     // initiate the whole :
     if (currHowlPlaying != null) {
-        //console.log(currHowlPlaying.playing())
         if (currHowlPlaying.playing()) {
             console.log("stopping")
             //currHowlPlaying.pause();
