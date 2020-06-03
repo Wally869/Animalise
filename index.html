@@ -16,7 +16,7 @@
   >
     <div class="flex items-center justify-center h-screen">
       <div class="flex-col">
-        <div class="bg-gray-100 p-12 bg-opacity-75 rounded-lg">
+        <div class="bg-gray-100 p-12 bg-opacity-75 rounded-lg py-8">
           <div class="flex">
             <div class="w-3/12">
               <img
@@ -164,7 +164,7 @@
 
   const allowedChars = Object.keys(libSounds);
 
-  var isPlaying = false;
+  var currHowlPlaying = null;
 
   function PlayText() {
     var textToPlay = document.getElementById("textInput").value.toLowerCase();
@@ -196,7 +196,12 @@
         pCount = pCount + 1;
       }
       howlerBank[pCount].play();
+      currHowlPlaying = howlerBank[pCount];
     };
+
+    var onPause = function (e) {
+        pCount = howlerBank.length;
+    }
 
     // build up howlerBank:
     playlistUrls.forEach(function (current, i) {
@@ -208,7 +213,14 @@
     //console.log(howlerBank.length);
 
     // initiate the whole :
+    if (currHowlPlaying != null) {
+        //console.log(currHowlPlaying.playing())
+        if (currHowlPlaying.playing()) {
+            console.log("stopping")
+            //currHowlPlaying.pause();
+            currHowlPlaying.stop();
+        }
+    }
     howlerBank[0].play();
-    isPlaying = true;
   }
 </script>
